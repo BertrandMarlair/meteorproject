@@ -1,0 +1,69 @@
+Mettre un sideNav activable avec une fonction mais qui s'active que si on clique sur le menu lorsqu'il est réduit
+
+Faire en sort que le menu soit collant a partir d'une certaine hauteur et si on remonte de quelque pixel il puisse reaparaitre
+
+parseMenu(ul, menu) {
+        console.log(ul)
+        if(ul){
+            for (var i=0;i<menu.length;i++) {
+                let test = document.createElement('li');
+                test.className="waves-effect waves-teal";
+                test.style=styles.li
+                test.onclick=()=>this.toggleMenu();
+                let NavLink = document.createElement('Navlink');
+                var test2 = document.createElement('a');
+                test2.href=menu[i].link;
+                test2.innerHTML=menu[i].name;
+                NavLink.appendChild(test2);
+                test.appendChild(NavLink);
+                // ('<li><a href="'+menu[i].link+'">'+menu[i].name+'</a></li>')
+                //<li className="waves-effect waves-teal" style={styles.li} onClick={()=>this.toggleMenu()}><NavLink style={styles.a} activeClassName="active" to={link.path}>{link.name}</NavLink></li>
+                var li=ul.appendChild(test);
+                if (menu[i].sub!=null) {
+                    var subul = document.createElement('ul');
+                    subul.id = "submenu"+menu[i].link;
+                    //var subul=('<ul id="submenu'+menu[i].link+'"></ul>');
+                    li.appendChild(subul);
+                    this.parseMenu((subul), menu[i].sub);
+                }
+            }
+        }
+    }
+
+    redux
+
+// const defaultState = {
+//    welcome: 'hi',
+//    ortherState: 'Some Stuff'
+// }
+
+// const greeting = (state = defaultState, action) => {
+//   switch(action.type){
+//     case 'GREET_ME':
+//       return { ...state, welcome: `test pour concatené en js ${action.result}` }
+//     case 'GREET_WORLD':
+//       return { ...state, welcome: `${action.name } ${action.payload} ${action.data}`}
+//     default: 
+//       return state;
+//   }
+// };
+
+// const store = createStore(greeting);
+
+// console.log(store.getState());
+
+// const result = "Something from API";
+
+// store.dispatch({
+//   type: 'GREET_ME',
+//   result: result
+// })
+
+// store.dispatch({
+//   type: 'GREET_WORLD',
+//   data: "result",
+//   name: "test",
+//   payload: "bonjour"
+// })
+
+// console.log(store.getState());
