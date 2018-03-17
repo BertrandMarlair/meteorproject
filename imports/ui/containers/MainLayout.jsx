@@ -16,8 +16,19 @@ import PhotoGrid from '../pages/ReduxStagram/PhotoGrid';
 import SingleRedux from '../pages/ReduxStagram/SingleRedux';
 import EmailVerificationToken from '../pages/notConnected/EmailVerification';
 
+//Badges
+import Badges from '../project/badges/badges';
+import BadgeCate from  '../project/badges/Component/Badge/BadgeCate';
+import BadgeList from '../project/badges/Component/Badge/BadgeList';
+import Form from '../project/badges/Component/Form/Form';
+import Succeed from '../project/badges/Component/Form/Succeed';
+import Already from '../project/badges/Component/Form/Already';
+import Notfound from '../project/badges/Component/Charging/Notfound';
+import Progress from '../project/badges/Component/Charging/Progress';
+
 // UserAccounts
 import Dashboard from '../pages/connected/Dashboard';
+import OneProject from '../pages/connected/Dashboard/OneProject';
 import UserAccounts from '../pages/connected/UserAccounts';
 
 //admin
@@ -29,20 +40,27 @@ class MainLayout extends React.Component {
       <Router>
         <div>
           <Header />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/register' component={FormRegister} />
-            <Route exact path='/login' component={FormLogin} />
-            <Route exact path='/forgotpassword' component={ForgotPassword} />
-            <Route exact path='/dashboard' component={Dashboard} />
-            <Route exact path='/admindashboard' component={AdminDashboard} />
-            <Route exact path='/UserAccounts' component={UserAccounts} />
-            <Route exact path='/verifiedEmail' component={EmailVerificationToken} />
-            <Route exact path='/redux' component={ReduxStagram} />
-            <Route exact path='/redux/view/:postid' component={SingleRedux} />
-            <Route component={NotFound} />
-          </Switch>
+          <div style={{minHeight:"calc(100vh - 330px)"}}>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/register' component={FormRegister} />
+              <Route exact path='/login' component={FormLogin} />
+              <Route exact path='/forgotpassword' component={ForgotPassword} />
+              <Route exact path='/dashboard' component={Dashboard} />
+              <Route exact path='/dashboard/:id' component={OneProject} />
+              <Route exact path='/admindashboard' component={AdminDashboard} />
+              <Route exact path='/UserAccounts' component={UserAccounts} />
+              <Route exact path='/verifiedEmail' component={EmailVerificationToken} />
+              <Route exact path='/redux' component={ReduxStagram} />
+              <Route exact path='/redux/view/:postid' component={SingleRedux} />
+              <Route exact path='/badges/' component={Badges} />
+              <Route exact path='/badges/:reste' component={Badges} />
+              <Route exact path='/badges/:reste/:tes' component={Badges} />
+              <Route exact path='/badges/:reste/:tes/:test' component={Badges} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
           <FooterMain />
         </div>
       </Router>

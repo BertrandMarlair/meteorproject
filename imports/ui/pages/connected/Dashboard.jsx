@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import RedirectCoonectedComp from '../../func/redirection/redirectConnectedConnection';
 import Modal from 'react-responsive-modal';
+import { NavLink } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Project } from '../../../api/ProjectCollections';
 
+import OwnProject from './Dashboard/OwnProject';
 import CollegueProject from './Dashboard/CollegueProject';
 
 class Dashboard extends Component {
@@ -15,6 +17,10 @@ class Dashboard extends Component {
             openSecondModal: false,
             userSlected: [],
          }
+    }
+
+    componentWillUnmount(){
+        this.setState({userSlected: []})
     }
 
     handleSubmit(e){
@@ -38,17 +44,6 @@ class Dashboard extends Component {
         }else{
           Materialize.toast("Complete de form correctly !", 4000);
         }
-    }
-
-    handleRemove(e){
-        e.preventDefault();
-        Meteor.call('project.remove', e.target.id.value, (err)=>{
-            if(err){
-                Materialize.toast(err.reason, 4000);
-            }else{
-                Materialize.toast("Correctly delete !", 4000);
-            }   
-        });
     }
 
     handleUser(e){
@@ -80,49 +75,44 @@ class Dashboard extends Component {
     };
 
     render() { 
-        console.log(this.props)
         const userNbr = this.state.userSlected.length;
         const { openFirstModal, openSecondModal } = this.state;
         return ( 
             <div>
-                <h1>
-                    <RedirectCoonectedComp />
-                    Dashboard
-                </h1>
-                <div>
-                    <div className="row">
-                        {this.props.project.map((project) => {
-                            return(
-                                <div className="col s12 m6" key={project._id}>
-                                    <div className="card">
-                                        <div className="card-image">
-                                            <h3>
-                                                {project.name}
-                                                <form onSubmit={this.handleRemove.bind(this)} style={{float: "right"}}>
-                                                    <input type="hidden" name="id" value={project._id}/>
-                                                    <button style={styles.buttonRight} className="waves-effect waves-light btn btn-floating red" >
-                                                        <i className="material-icons"value={project._id} alt={project._id}>close</i>
-                                                    </button>
-                                                </form>
-                                            </h3>
-                                        </div>
-                                        <div className="card-content">
-                                            <p style={{wordWrap: "break-word",}}>
-                                                {project.desc}
-                                            </p>
-                                        </div>
-                                        <div className="card-action">
-                                        <a href="#">This is a link</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
+                <RedirectCoonectedComp />
+                <div className="own">
+                    <h3>Dashboard</h3>
+                    <div className="wrapper">
+                        <div className={(this.props.project.length >= 7) ? "masonry" : "masonryFlexCard"}>
+                            {this.props.project.map((project) => {
+                                let display = "";
+                                if(this.props.project.length >= 7){
+                                    display = "masonry";
+                                }
+                                return(
+                                    <OwnProject key={project._id} project={project} display={display} />
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
                 <hr/>
-                <div>Project from collegue : </div>
-                <CollegueProject />
+                <div className="collegue">
+                    <h3>Project from collegue : </h3>
+                    <div className="wrapper">
+                        <div className={(this.props.collegue.length >= 7) ? "masonry" : "masonryFlexCard"}>
+                            {this.props.collegue.map((collegue) => {
+                                let display = "";
+                                if(this.props.collegue.length >= 7){
+                                    display = "masonry";
+                                }
+                                return(
+                                    <CollegueProject key={collegue._id} collegue={collegue} display={display} />)
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
                 <button onClick={this.onOpenFirstModal.bind(this)} id="menu" style={styles.button} className="waves-effect waves-light btn btn-floating" ><i className="material-icons">add</i></button>
                 <Modal open={openFirstModal} onClose={this.onCloseFirstModal.bind(this)} little>
                     <form onSubmit={this.handleSubmit.bind(this)}>
@@ -190,11 +180,11 @@ export default withTracker(props => {
     Meteor.subscribe('project');
     Meteor.subscribe('users');
     return {
-        project: Project.find({owner: Meteor.userId()}).fetch(),
-        users: Meteor.users.find().fetch(),
-        test: Project.find({ collegue: { $in: [Meteor.userId()] } }).fetch(),
+        project: Project.find({ owner: Meteor.userId()}).fetch(),
+        users: Meteor.users.find({ _id : { $ne : Meteor.userId() } } ).fetch(),
+        collegue: Project.find({ collegue: { $in: [Meteor.userId()] } }).fetch(),
     };
-})(Dashboard);;
+})(Dashboard);
 
 const styles={
     button:{
@@ -213,6 +203,5 @@ const styles={
     formUser:{
         marginTop: "40px",
         marginBottom: "40px",
-        width: "400px",
     }
 }

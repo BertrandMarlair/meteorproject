@@ -42,7 +42,7 @@ export default class Header extends React.Component {
     });
     window.addEventListener('keydown', (e) => {
       if(e.key == "Escape"){
-        these.SidebarToggle(false);
+        this.SidebarToggle(false);
       }
     });
   }

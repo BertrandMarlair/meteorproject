@@ -93,7 +93,7 @@ class SideNavComp extends Component {
                             <div style={styles.userInfo}>
                                 <NavLink activeClassName="active" to="/UserAccounts">
                                     <div style={styles.user} onClick={()=>this.toggleMenu()}>
-                                        <img style={{height: "100%"}} src={this.props.UserImage ? this.props.UserImage : "http://uwm.edu/french-italian-comparative-literature/wp-content/uploads/sites/206/2015/06/grey-man.png"} alt="Profil User"/>
+                                        <img style={{height: "100%", margin: "auto", display: "block"}} src={this.props.UserImage ? this.props.UserImage : "http://www.taxiaguilarapido.com/tar/files/images/no_photo.jpg"} alt="Profil User"/>
                                     </div>
                                 </NavLink>
                                 <NavLink activeClassName="active" to="/UserAccounts">
@@ -134,11 +134,11 @@ const styles = {
     SideBar:{
         top: "0",
         width: "300px",
-        height: "100%",
+        height: "125%",
         position: "fixed",
         background: '#fff',
         overflow: "scroll",
-        zIndex: '999',
+        zIndex: '10000',
         boxShadow: "rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0, 0, 0, 0.12) 0px 1px 5px 0px, rgba(0, 0, 0, 0.2) 0px 3px 1px -2px",
         transform: "translateX(-100%)",
         transition: "0.3s",
@@ -175,7 +175,7 @@ const styles = {
         position: "absolute",
         width: "60px",
         height: "60px",
-        background: "red",
+        background: "#ffffff00",
         top: "36px",
         borderRadius: "100%",
         overflow: "hidden",

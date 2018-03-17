@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+html{
+    min-width: 450px;
+    font-size: 16px;
+}
+
+body{
+    background-color: #f6f6f6;
+}
+
+@import 'sassSheet/main';
+@import 'sassSheet/badgeCate';
+@import 'sassSheet/badgeList';
+@import 'sassSheet/badgeForm';
+@import 'sassSheet/navBar';
+@import 'sassSheet/succeed';
+@import 'sassSheet/alert';
+@import 'sassSheet/progress';
+@import 'sassSheet/materialize';
+
+/* fallback */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v34/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format('woff2');
+  }
+  
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga'; 
+    -webkit-font-smoothing: antialiased;
+  }

@@ -1,0 +1,73 @@
+#cardList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 45px;
+    color: #e03f3f;
+    #cards{
+        max-width: 250px;
+        height: 245px;
+        min-width: 225px;
+        width: 25%;
+        cursor: pointer;
+        a{
+            .imageBadge {
+                display: flex;
+                width: 160px;
+                margin: auto;
+                height: 160px;
+                background: white;
+                border-radius: 100%;
+                box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.096);
+                transition: 0.1s;
+                img {
+                    display: block;
+                    border: 0;
+                    width: 60%;
+                    height: 60%;
+                    margin: auto;
+                    vertical-align: middle;
+                }
+            }
+            .title {
+                border: 1px solid;
+                padding: 9px;
+                margin-top: 15px;
+                text-align: center;
+                width: 85%;
+                margin-left: auto;
+                margin-right: auto;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transition: 0.2s;
+                .BadgeTitle{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                &:hover{
+                    background-color: #039be5;
+                    color: white;
+                    transition: 0.2s;
+                }
+            }
+        }
+        &:hover{
+            a{
+                .imageBadge{
+                    transition: 0.1s;
+                    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.014);
+                }
+            }
+        }
+    }
+}
+
+.inputSelect{
+    width: 60%;
+    float: right;
+    margin-top: 0rem;
+}

@@ -1,0 +1,40 @@
+.alert {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #e74c3c;
+  text-align: center;
+  box-shadow: rgba(121, 121, 121, 0.35) 1px 5px 20px 3px;
+  color: white;
+  font-size: 1em;
+  padding: 10px;
+  animation: alert 5s ease-out;
+  animation-iteration-count: 1;
+  -ms-transform: translateY(-80px);
+  transform: translateY(-87px);
+  opacity: 0;
+  vertical-align: middle;
+  z-index: 9999; }
+
+@keyframes alert {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px); }
+  5% {
+    opacity: 1;
+    transform: translateY(0px); }
+  95% {
+    opacity: 1;
+    transform: translateY(0px); }
+  99% {
+    opacity: 0;
+    transform: translateY(-80px); } }
+
+.fixe {
+  will-change: auto;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  transition: 0.2s linear;
+  margin-top: -6px;
+  max-width: 100%; }

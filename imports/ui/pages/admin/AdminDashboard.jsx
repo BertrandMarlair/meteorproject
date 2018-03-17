@@ -38,7 +38,7 @@ class AdminDashboard extends Component {
                     key={user._id}
                     id={user._id}
                     index={index}
-                    user={user.emails[0].address}
+                    user={user.emails ? user.emails[0].address : "na mail"}
                     profile={user.profile}
                     changeRole={this.changeRole.bind(this)}
                     remove={this.remove.bind(this)}
@@ -48,18 +48,16 @@ class AdminDashboard extends Component {
     }
 
     render() {
-        if(Meteor.userId()){
+        if(Meteor.user()){
             return (
                 <div>
                     <AdminRedirectCoonectedComp />
-                    <ul id="tabs-swipe-demo" className="tabs">
-                        <li className="tab col s3"><a className="active" href="#test-swipe-1">Gestion Form</a></li>
-                        <li className="tab col s3"><a href="#test-swipe-2">Gestion Users</a></li>
-                        <li className="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
-                    </ul>
-                    <div id="test-swipe-1" className="col s12"><FormSelect/></div>
-                    <div id="test-swipe-2" className="col s12">{this.getUsers()}</div>
-                    <div id="test-swipe-3" className="col s12">Test 3</div>
+                    <Tabs className='tab-demo z-depth-1'>
+                        <Tab title="Gestion Form"><FormSelect/></Tab>
+                        <Tab title="Gestion Users">{this.getUsers()}</Tab>
+                        <Tab title="Test 3">Test 3</Tab>
+                        <Tab title="Test 4">Test 4</Tab>
+                    </Tabs>
                 </div>
             );
         }else{

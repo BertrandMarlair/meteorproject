@@ -6,7 +6,8 @@ import { Project } from './ProjectCollections';
 export const Collegue = Project.find({}).fetch();
  
 if (Meteor.isServer){
-    Meteor.publish('mabite', function(test) {
+    Meteor.publish('test2', function(test) {
         return Collegue.find({});
     });
 }
+

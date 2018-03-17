@@ -1,0 +1,118 @@
+.ListCate {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95%;
+    max-width: 1310px;
+    padding-top: 25px;
+    margin: auto;
+    min-width: 300px;
+    .category {
+        width: 290px;
+        height: 225px;
+        margin: 12px;
+        margin-right: 25px;
+        background: white;
+        padding: 15px;
+        box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.096);
+        transition: 0.2s;
+        .linkCate{
+            .imgCate{
+                height: 160px;
+                img{
+                    min-width: 140px;
+                    margin: auto;
+                    display: block;
+                    max-width: 75%;
+                }
+            }
+            .titleCate{
+                border: 1px solid;
+                padding: 10px;
+                text-align: center;
+                transition: 0.2s;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-transform: capitalize;
+                line-height: 1;
+                &:hover{
+                    background-color: #039be5;
+                    color: white;
+                    transition: 0.2s;
+                }
+            }
+            
+        }
+        &:hover{
+            box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.041); 
+            transition: 0.2s;
+        }
+    }
+}
+
+section {
+    height: 100%;
+    width: 94%;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto 0px;
+  }
+  section .innerHead {
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    font-size: 4.875em;
+    font-weight: 900;
+    color: #fff;
+  }
+  section .innerHead:after, section a:before {
+    content: '';
+  }
+  section.head {
+    position: relative;
+    z-index: 0;
+  }
+  section.head .innerHead {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 78px;
+    line-height: 78px;
+    position: absolute;
+    top: 50%;
+    margin-top: -39px;
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+    transition: all 2s cubic-bezier(0.21, 1, 0.84, 1.01);
+  }
+  section.head .innerHead:before, section.head .innerHead:after {
+    color: #fff;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: none;
+    display: block;
+    transition: inherit;
+  }
+  section.head .innerHead:before {
+    content: attr(data-bf);
+    position: absolute;
+    top: -45px;
+  }
+  section.head .innerHead:after {
+    content: attr(data-af);
+    position: absolute;
+    right: 10%;
+    bottom: -30px;
+  }
+  section.head .innerHead:hover {
+    transform: scale(1.05);
+  }
+  section.head .innerHead:hover:before {
+    transform: scale(1.2) translate(-25px, -15px);
+  }
+  section.head .innerHead:hover:after {
+    transform: scale(1.2) translate(25px, 15px);
+  }

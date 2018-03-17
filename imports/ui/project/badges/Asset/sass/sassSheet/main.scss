@@ -1,0 +1,51 @@
+.searchBar {
+    transition: 0.2s;
+    width: 95%;
+    max-width: 1000px;
+    min-width: 330px;
+    background-color: #ffffff;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -35px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.096);
+    form{
+        height: 100%;
+        .buttonField{
+            width: 50%;
+            float: right;
+            height: 100%;
+            padding: 12px;
+            button.btn.waves-effect.waves-light {
+                margin: 16px;
+            }
+        }
+    }
+}
+
+.imageMainCate{
+    background-image: url("../image/banniere1.jpeg");
+    height: 230px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 28%;
+}
+
+.imageMainBadge{
+    background-image: url("../image/banniere2.jpg");
+    height: 230px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 54%;
+}
+
+.imageMainForm{
+    background-image: url("../image/banniere3.jpg");
+    height: 230px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 28%;
+}
