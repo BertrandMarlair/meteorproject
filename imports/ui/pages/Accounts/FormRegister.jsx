@@ -54,7 +54,7 @@ class FormRegister extends Component {
 
     git(e){
         e.preventDefault();
-        window.open('https://github.com/login/oauth/authorize?client_id=33450c8d38b3d7775951&scopes=scopes&state=unguessable-string');
+        window.open('https://github.com/login/oauth/authorize?client_id=0fcee618713b897bdfd8&scopes=scopes&state=unguessable-string');
     }
 
     render() { 
