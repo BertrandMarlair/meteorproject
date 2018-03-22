@@ -65,7 +65,7 @@ class FormRegister extends Component {
             <div style={styles.register}>
                 <RedirectComp />
                 <h2>Register Accounts</h2>
-                <div className="row">
+                <div className="row boxRow">
                     <Form 
                         schema={schema}
                         uiSchema={uiSchema}

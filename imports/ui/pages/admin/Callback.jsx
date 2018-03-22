@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 const config = {
-    oauth_client_id: "33450c8d38b3d7775951",
-    oauth_client_secret: "cb757513bea2396f8e0bf7ef2a3958988af3ad8a",
+    oauth_client_id: "0fcee618713b897bdfd8",
+    oauth_client_secret: "12541eec1475c4b7bdee65cb17986e7268d5f67d",
 }
 
 class Callback extends Component {

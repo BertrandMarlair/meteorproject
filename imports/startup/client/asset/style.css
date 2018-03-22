@@ -125,7 +125,7 @@ nav{
 }
 
 fieldset{
-    border: 1px solid #ffffff00;
+    border: none !important;
 }
 
 .form-group label{
@@ -728,4 +728,10 @@ select{
     width: 62%;
     margin: 16px;
     float: right;
+}
+
+.boxRow{
+    background: white;
+    padding: 6px;
+    box-shadow: 0 0 10px #c1c1c1;
 }

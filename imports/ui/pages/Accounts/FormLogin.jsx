@@ -42,7 +42,7 @@ class FormLogin extends Component {
             <div style={styles.register}>
                 <RedirectComp />
                 <h2>Login Accounts</h2>
-                <div className="row">
+                <div className="row boxRow">
                     <Form 
                         schema={schema}
                         uiSchema={uiSchema}
