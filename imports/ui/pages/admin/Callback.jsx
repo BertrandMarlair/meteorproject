@@ -1,83 +1,47 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const config = {
-    oauth_client_id: "0fcee618713b897bdfd8",
-    oauth_client_secret: "12541eec1475c4b7bdee65cb17986e7268d5f67d",
-}
-
 class Callback extends Component {
 
-    componentDidMount(){
-        var urlCode = new URL(window.location.href).searchParams.get('code');
-        this.authenticate(urlCode)
-    }
-
-    authenticate(code) {
-        var data = {
-            client_id: config.oauth_client_id, //your GitHub client_id
-            client_secret: config.oauth_client_secret,  //and secret
-           code: code   //the access code we parsed earlier
-        };
+    componentDidMount () {
+        const oauthScript = document.createElement("script");
+        oauthScript.src = "https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js";
     
-        var reqOptions = {
-            host: 'github.com',
-            port: '443',
-            path: '/login/oauth/access_token',
-            method: 'POST',
-            headers: { 'content-length': data.length }
-        };
+        document.body.appendChild(oauthScript);
+      }
+
+      handleClick(e) {
+        // Prevents page reload
+        e.preventDefault();
     
-        var body = '';
-        
-        const req = new XMLHttpRequest();
-
-        req.onreadystatechange = function(event) {
-            // XMLHttpRequest.DONE === 4
-            if (this.readyState === XMLHttpRequest.DONE) {
-                if (this.status === 200) {
-                    console.log("Réponse reçue: %s", this.responseText);
-                } else {
-                    console.log("Status de la réponse: %d (%s)", this.status, this.statusText);
-                }
-            }
-        };
-
-        axios.post('https://github.com/login/oauth/access_token?client_id='+ data.client_id+'&client_secret='+data.client_secret+'&code='+ data.code,{header:{
-            "cache-control":"no-cache",
-            "content-type":"text/html; charset=utf-8"
-        }})
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((error) => {
-            console.log({error: error})
-        })
-
-        // console.log('https://github.com/login/oauth/access_token?client_id='+ data.client_id+'&client_secret='+data.client_secret+'&code='+ data.code)
-        // req.open('POST', 'https://github.com/login/oauth/access_token?client_id='+ data.client_id+'&client_secret='+data.client_secret+'&code=6dbbd7b44b3ba04a381c', true);
-        // req.send(null);
-        
-        // var req = https.request(reqOptions, function(res) {
-        //     res.setEncoding('utf8');
-        //     res.on('data', function (chunk) { body += chunk; });
-        //     res.on('end', function() {
-        //         cb(null, qs.parse(body).access_token);
-        //     });
-        // });
+        // Initializes OAuth.io with API key
+        // Sign-up an account to get one
+        window.OAuth.initialize('bC61PDD354I-jIUUEKr98pCS8lo');
     
-        // req.write(data);
-        // req.end();
-        // req.on('error', function(e) { console.log(e.message); });
-
-        
-    }
+        // Popup Github and ask for authorization
+        window.OAuth.popup('github').then((provider) => {
+    
+          // Prompts 'welcome' message with User's name on successful login
+          // Check console logs for additional User info
+          provider.me().then((data) => {
+            console.log("data: ", data);
+            alert("Welcome " + data.name + "!");
+          });
+    
+          // You can also call Github's API using .get()
+          provider.get('/user').then((data) => {
+             console.log('self data:', data);
+          });
+    
+        });
+      }
 
     render() { 
-        console.log(this.props.match)
         return ( 
             <div>
-                callback
+                <a href="" onClick={this.handleClick.bind(this)} className="btn btn-social btn-github">
+             <span className="fa fa-github"></span> Sign in with Github
+           </a>
             </div>
          )
     }
