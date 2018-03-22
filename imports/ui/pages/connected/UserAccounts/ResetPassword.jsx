@@ -26,7 +26,7 @@ class ResetPassword extends Component {
     render() { 
         return ( 
             <div id="main" className="row"  style={styles.register}>
-                <h3>Reset your password :</h3>
+                <h5>Reset your password :</h5>
                 <form className="col s12" onSubmit={this.onSubmit.bind(this)}>
                     <div className="row">
                         <div className="input-field col s12">

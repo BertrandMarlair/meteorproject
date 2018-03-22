@@ -1,10 +1,17 @@
 
+body{
+    font-weight: 300;
+}
+
 #main{
     height: 100%;
     max-width: 1200px;
     min-width: 400px;
     width: 80%;
     margin: auto;
+    background: white;
+    padding: 7px;
+    box-shadow: 0 0 10px #c8c8c8;
 }
 
 #app{
@@ -273,7 +280,7 @@ span.commentSecond {
 
 li.liSecondComment {
     margin-bottom: 5px;
-    background: white;
+    background:white;
     border-bottom: 1px solid #00000021;
 }
 
@@ -568,4 +575,157 @@ select{
 .masonryFlexCard{
     display: flex;
     flex-wrap: wrap;
+}
+
+.box {
+    background:#FFF;
+    border-radius:5px;
+    display:inline-block;
+    margin:6em 0 2em;
+    padding:0 20px 20px;
+}
+  
+  .date #daymonth {
+    color:#454545;
+    font-size:2em;
+    padding:10px 0;
+  }
+  .date #year {
+    color:#C1C1C1;
+    font-size:1.8em;
+  }
+  
+  .clock {
+    background-color:#D75B42;
+    border: 0.6em solid white;
+    border-radius: 100%;
+    height: 8em;
+    margin-top:-50%;
+    position: relative;
+    width: 8em;
+  }
+  .clock span {
+    background: white;
+    bottom: 50%;
+    display: block;
+    left: 50%;
+    position: absolute;
+    transform-origin: bottom center;
+  }
+  .clock .hours {
+    height: 30%;
+    width: 0.2em;
+  }
+  .clock .minutes {
+    height: 45%;
+    width: 0.2em;
+  }
+
+.absences{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    flex-wrap: wrap;
+  }
+.absences .left{
+    padding: 5px;
+    width: 50%;
+    min-width: 400px;
+    max-width: 500px;
+    overflow: scroll;
+}
+
+.absences .right{
+    padding: 5px;
+    width: 50%;
+    min-width: 400px;
+    max-width: 500px;
+    overflow: scroll;
+}
+
+.absencesPage{
+    margin: 30px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 0 10px #dbdbdb;
+}
+
+  .absencesCard{
+    background: white;
+    padding: 5px;
+    box-shadow: 0 0 10px #dbd9d9;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    animation-duration: 0.3s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      opacity: 0;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.causeAbsences {
+    display: flex;
+    padding: 6px;
+    border-top: 1px solid #eaeaea;
+}
+
+.dateAbsences {
+    min-width: 128px;
+    width: 25%;
+    border-right: 1px solid #e4e4e4;
+}
+
+.raisonAbsences {
+    width: 67%;
+    max-width: 330px;
+    margin-left: 10px;
+    word-wrap: break-word;
+}
+
+.nameAbsences {
+    margin: 5px;
+}
+
+.absencesCard {
+    color: #010101;
+    font-weight: 300;
+}
+
+.soloAbsences{
+    min-height: 70px;
+    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    box-shadow: 0 0 9px #e7e7e7;
+    border-radius: 3px;
+    margin-bottom: 13px;
+}
+
+.imageSolo{
+    width: 70px;
+}
+
+.imageSolo img{
+    height: 100%;
+    width: 100%;
+}
+
+.buttonRightSolo{
+    width: 30%;
+}
+
+.buttonRightSoloButton{
+    width: 62%;
+    margin: 16px;
+    float: right;
 }

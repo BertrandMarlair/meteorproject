@@ -228,7 +228,7 @@ class OneProjectOrganisation extends Component {
                 <div className="row">
                     <div className="col s12 m6">
                         <SortableList items={items} onSortEnd={this.onSortEnd.bind(this)} useDragHandle={true} />
-                        {this.state.items > 0 ? <button onClick={this.SortableList.bind(this)} className="col s12 waves-effect waves-light btn btn-block">Change Order</button> : ""}
+                        {items != undefined && items.length > 0 ? <button onClick={this.SortableList.bind(this)} className="col s12 waves-effect waves-light btn btn-block">Change Order</button> : ""}
                     </div>
                     <div className="col s12 m6">
                         {this.removeList({items})}

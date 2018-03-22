@@ -26,13 +26,20 @@ import Already from '../project/badges/Component/Form/Already';
 import Notfound from '../project/badges/Component/Charging/Notfound';
 import Progress from '../project/badges/Component/Charging/Progress';
 
+import 'react-infinite-calendar/styles.css';
+
 // UserAccounts
 import Dashboard from '../pages/connected/Dashboard';
 import OneProject from '../pages/connected/Dashboard/OneProject';
 import UserAccounts from '../pages/connected/UserAccounts';
+import Absences from '../pages/connected/Absences';
 
 //admin
 import AdminDashboard from '../pages/admin/AdminDashboard';
+import GestionAbsences from '../pages/admin/GestionAbsences';
+
+//github
+import Callback from '../pages/admin/Callback';
 
 class MainLayout extends React.Component {
   render() {
@@ -49,7 +56,6 @@ class MainLayout extends React.Component {
               <Route exact path='/forgotpassword' component={ForgotPassword} />
               <Route exact path='/dashboard' component={Dashboard} />
               <Route exact path='/dashboard/:id' component={OneProject} />
-              <Route exact path='/admindashboard' component={AdminDashboard} />
               <Route exact path='/UserAccounts' component={UserAccounts} />
               <Route exact path='/verifiedEmail' component={EmailVerificationToken} />
               <Route exact path='/redux' component={ReduxStagram} />
@@ -58,6 +64,14 @@ class MainLayout extends React.Component {
               <Route exact path='/badges/:reste' component={Badges} />
               <Route exact path='/badges/:reste/:tes' component={Badges} />
               <Route exact path='/badges/:reste/:tes/:test' component={Badges} />
+              <Route exact path='/absences' component={Absences} />
+              <Route exact path='/auth/:callback' component={Callback} />
+
+
+              <Route exact path='/admindashboard' component={AdminDashboard} />
+              <Route exact path='/gestionabsences' component={GestionAbsences} />
+
+
               <Route component={NotFound} />
             </Switch>
           </div>

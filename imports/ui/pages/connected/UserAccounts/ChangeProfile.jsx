@@ -46,7 +46,7 @@ class ChangeProfile extends Component {
         if(Logged('CONNECT')){
             return(
                 <div id="main" className="row">
-                    <h3>Changer your Profile :</h3>
+                    <h5>Change your Profile :</h5>
                     <form id="changeProfile" className="col s12" onSubmit={this.onSubmit.bind(this)}>
                         <div className="row">
                             <div>Username : {Logged('NAME')}</div>

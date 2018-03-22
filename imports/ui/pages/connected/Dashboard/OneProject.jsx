@@ -6,6 +6,8 @@ import { Collegue } from '../../../../api/CollegueTest';
 import Modal from 'react-responsive-modal';
 import RedirectCoonectedComp from '../../../func/redirection/redirectConnectedConnection';
 
+import InfiniteCalendar from 'react-infinite-calendar';
+
 import OneProjectComments from './OneProject/OneProjectComments';
 import OneProjectOrganisation from './OneProject/OneProjectOrganisation';
 
@@ -227,6 +229,7 @@ class OneProject extends Component {
     }
 
     render() {
+        var today = new Date();
         const project = this.props.projectOne[0];
         if(project){
             let accepted = false;

@@ -44,7 +44,7 @@ class ChangeAvatar extends Component {
     render() {
         return(
             <div id="main" className="row">
-                <h3>Changer your Avatar :</h3>
+                <h5>Changer your Avatar :</h5>
                 <form onSubmit={this.avatarSubmit.bind(this)}> 
                     <div className="row">
                         <div className="input-field col s12">
@@ -55,7 +55,7 @@ class ChangeAvatar extends Component {
                     </div>
                 </form>
                 <hr/>
-                <h3>Changer your Background :</h3>
+                <h5>Changer your Background :</h5>
                 <form onSubmit={this.backgroundSubmit.bind(this)}> 
                     <div className="row">
                         <div className="input-field col s12">

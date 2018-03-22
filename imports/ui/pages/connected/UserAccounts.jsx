@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Tabs, Tab } from 'react-materialize'; 
+import {Tabs, Tab} from 'material-ui/Tabs';
 import RedirectCoonectedComp from '../../func/redirection/redirectConnectedConnection';
 
 import ResetPassword from './UserAccounts/ResetPassword';
@@ -22,12 +22,11 @@ class UserAccounts extends Component {
         return ( 
             <div>
                 <RedirectCoonectedComp />
-                <h2>User Accounts</h2>
-                <Tabs className='tab-demo z-depth-1'>
-                    <Tab title="Test 1" >Test 1</Tab>
-                    <Tab title="Change profile informations" active><ChangeProfile/></Tab>
-                    <Tab title="Change Image"><ChangeAvatar/></Tab>
-                    <Tab title="Reset Password"><ResetPassword/></Tab>
+                <h4>User Accounts</h4>
+                <Tabs>
+                    <Tab label="Profile"><ChangeProfile/></Tab>
+                    <Tab label="Image"><ChangeAvatar/></Tab>
+                    <Tab label="Password"><ResetPassword/></Tab>
                 </Tabs>
             </div>
          )

@@ -4,6 +4,10 @@ import schema from '../../func/formJson/schema/registerFrom';
 import uiSchema from '../../func/formJson/ui/registerUi';
 import Form from "react-jsonschema-form";
 import { Redirect, NavLink } from "react-router-dom";
+import GitHubLogin from 'react-github-login';
+
+const onSuccess = response => console.log(response);
+const onFailure = response => console.log(response);
 
 class FormRegister extends Component {
     constructor(props) {
@@ -48,6 +52,11 @@ class FormRegister extends Component {
         Materialize.toast("You have " + errors.length + " errors to fix", 4000);
     };
 
+    git(e){
+        e.preventDefault();
+        window.open('https://github.com/login/oauth/authorize?client_id=33450c8d38b3d7775951&scopes=scopes&state=unguessable-string');
+    }
+
     render() { 
         if(this.state.redirect){
             return <Redirect to="/" />
@@ -64,6 +73,9 @@ class FormRegister extends Component {
                         onError={this.onError.bind(this)}
                     />
                 </div>
+                <form onSubmit={this.git.bind(this)}>
+                    <button>GitHubLogin</button>
+                </form>
                 <NavLink activeClassName="active" to="/login">You already got a accounts</NavLink>
             </div>
          )
