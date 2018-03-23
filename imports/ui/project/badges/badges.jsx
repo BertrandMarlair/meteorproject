@@ -112,7 +112,7 @@ class Badges extends Component {
                 <Router basename={'/badges'}>
                     <div>
                         <div className="nav">
-                        <div className="navBar">
+                            <div className="navBar">
                                 <ul className="navBar">
                                     <li><Link to="/">Home Badges</Link></li>
                                 </ul>

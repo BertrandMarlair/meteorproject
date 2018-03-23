@@ -735,3 +735,66 @@ select{
     padding: 6px;
     box-shadow: 0 0 10px #c1c1c1;
 }
+
+.modalRegister{
+    min-height: 400px;
+}
+
+.spinnerModalRagister{
+    display: block;
+    margin: auto;
+}
+
+.imageGithub{
+    width: 20%;
+    float: left;
+}
+
+.imageGithub img{
+    width: 100%;
+    margin-left: -9px;
+}
+
+.userGithub{
+    margin-left: 20%;
+    width: 80%;
+}
+
+.userGithub span{
+    display: block;
+    width: 100%;
+}
+
+a.btn.btn-social.btn-github {
+    width: 250px;
+}
+
+.registerLink {
+    margin: 18px;
+}
+
+.registerForm{
+    padding: 40px;
+    text-align: center;
+}
+
+.homePage{
+    background: white;
+    margin: auto;
+    width: 95%;
+    box-shadow: 0 0 10px #c6c2c2;
+    padding: 48px;
+}
+
+.NotFound{
+    background: white;
+    margin: auto;
+    width: 95%;
+    box-shadow: 0 0 10px #c6c2c2;
+    padding: 48px; 
+}
+
+.modalRegisterSpinner{
+    text-align: center;
+    margin-top: 300px;
+}

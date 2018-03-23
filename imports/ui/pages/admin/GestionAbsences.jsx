@@ -56,19 +56,12 @@ class GestionAbsences extends Component {
                                             <div className="causeAbsences" key={index}>
                                                 <div className="dateAbsences">
                                                     <p>{absence.date}</p>
-                                                    <p>{absence.time ? absence.time : "Pas d'heure indiqué"}</p>
+                                                    <p>{absence.time ? absence.time : "No time indicated"}</p>
                                                 </div>
                                                 <div className="raisonAbsences">
                                                     <p>{absence.cause}</p>
                                                 </div>
-                                                <div style={{width: "10%"}}>
-                                                    <form onSubmit={this.downloadFile.bind(this)}>
-                                                        <input type="hidden" name="absencesLink" value={absence.link} />
-                                                        <button style={{background: "transparent", border: "none",float: "right", color: "#2c91ff"}}>
-                                                            <i className="material-icons prefix">file_download</i>
-                                                        </button>
-                                                    </form>
-                                                </div>
+                                                {this.downloadButton(absence.link)}
                                             </div>
                                         )
                                     }
@@ -82,6 +75,21 @@ class GestionAbsences extends Component {
             return(
                 <div className="absencesCard">
                     <p>Pas d'absences prévue</p>
+                </div>
+            )
+        }
+    }
+
+    downloadButton(link){
+        if(link){
+            return(
+                <div style={{width: "10%"}}>
+                    <form onSubmit={this.downloadFile.bind(this)}>
+                        <input type="hidden" name="absencesLink" value={link} />
+                        <button style={{background: "transparent", border: "none",float: "right", color: "#2c91ff"}}>
+                            <i className="material-icons prefix">file_download</i>
+                        </button>
+                    </form>
                 </div>
             )
         }
@@ -342,7 +350,7 @@ class GestionAbsences extends Component {
                 <div>
                     <AdminRedirectCoonectedComp />
                     <Tabs>
-                        <Tab label="Calendrier" >
+                        <Tab label="Calendar" >
                             <div className="absences">
                                 <div className="left">
                                     <InfiniteCalendar
@@ -373,7 +381,7 @@ class GestionAbsences extends Component {
                                 </div>
                             </div>
                         </Tab>
-                        <Tab label="User" >
+                        <Tab label="Users" >
                             <div className="absences">
                                 <div className="left">
                                     <form onSubmit={(e) => {e.preventDefault()}}>

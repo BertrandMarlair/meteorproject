@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import AdminRedirectCoonectedComp from '../../func/redirection/adminRedirectConnectedConnection';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Tabs, Tab } from 'react-materialize'; 
-
+import {Tabs, Tab} from 'material-ui/Tabs';
 import User from './AdminAccounts/UserComponent'
 import FormSelect from './AdminAccounts/FormSelect';
 
@@ -52,11 +51,9 @@ class AdminDashboard extends Component {
             return (
                 <div>
                     <AdminRedirectCoonectedComp />
-                    <Tabs className='tab-demo z-depth-1'>
-                        <Tab title="Gestion Form"><FormSelect/></Tab>
-                        <Tab title="Gestion Users">{this.getUsers()}</Tab>
-                        <Tab title="Test 3">Test 3</Tab>
-                        <Tab title="Test 4">Test 4</Tab>
+                    <Tabs>
+                        <Tab label="Gestion Users">{this.getUsers()}</Tab>
+                        <Tab label="Gestion Form"><FormSelect/></Tab>
                     </Tabs>
                 </div>
             );

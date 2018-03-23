@@ -79,6 +79,7 @@ export default class Header extends React.Component {
       }
     });
     setTimeout(() => { this.forceUpdate(); }, 200);
+    window.location.replace('/');
   }
 
   render() {
@@ -117,7 +118,7 @@ export default class Header extends React.Component {
             <div className="button-collapse" style={{cursor: "pointer"}} data-activates="nav-mobile" onClick={() => this.SidebarToggle(true)}>
               <i className="material-icons">view_headline</i>
             </div>
-            <div className="brand-logo center"><NavLink activeClassName="active" to="/">Logo</NavLink></div>
+            <div className="brand-logo center" style={{height: "100%"}}><NavLink activeClassName="active" to="/"><img style={{height: "100%"}} src="https://www.becode.org/partners/images/SmallLogo.png" alt="logo" /></NavLink></div>
             <ul>
               {NavOption}
               <li style={{float: "right"}} onClick={() => { this.forceUpdate()}}>

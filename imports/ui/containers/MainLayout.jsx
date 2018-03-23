@@ -6,7 +6,6 @@ import { createStore } from 'redux';
 import Header from '../components/Header/Header';
 import FooterMain from '../components/Footer/Footer';
 import Home from '../pages/Home';
-import About from '../pages/About';
 import FormRegister from '../pages/Accounts/FormRegister';
 import FormLogin from '../pages/Accounts/FormLogin';
 import ForgotPassword from '../pages/Accounts/ForgotPassword';
@@ -38,19 +37,15 @@ import Absences from '../pages/connected/Absences';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import GestionAbsences from '../pages/admin/GestionAbsences';
 
-//github
-import Callback from '../pages/admin/Callback';
-
 class MainLayout extends React.Component {
   render() {
     return (
       <Router>
         <div>
           <Header />
-          <div style={{minHeight:"calc(100vh - 330px)"}}>
+          <div style={{minHeight:"80vh"}}>
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/about' component={About} />
               <Route exact path='/register' component={FormRegister} />
               <Route exact path='/login' component={FormLogin} />
               <Route exact path='/forgotpassword' component={ForgotPassword} />
@@ -65,13 +60,8 @@ class MainLayout extends React.Component {
               <Route exact path='/badges/:reste/:tes' component={Badges} />
               <Route exact path='/badges/:reste/:tes/:test' component={Badges} />
               <Route exact path='/absences' component={Absences} />
-              <Route exact path='/auth/:callback' component={Callback} />
-
-
               <Route exact path='/admindashboard' component={AdminDashboard} />
               <Route exact path='/gestionabsences' component={GestionAbsences} />
-
-
               <Route component={NotFound} />
             </Switch>
           </div>

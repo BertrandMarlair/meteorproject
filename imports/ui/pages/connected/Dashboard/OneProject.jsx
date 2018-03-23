@@ -42,7 +42,7 @@ class OneProject extends Component {
         this.setState({ openFirstModal: true });
     };
     
-      onCloseFirstModal(){
+    onCloseFirstModal(){
         this.setState({ openFirstModal: false });
     };
 

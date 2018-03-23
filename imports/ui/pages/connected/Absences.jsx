@@ -62,7 +62,7 @@ class Absences extends Component {
         e.preventDefault();
         var dates = this.getDates(new Date(this.state.rangePickerMobile.startDate._d), new Date(this.state.rangePickerMobile.endDate._d));                                                                                                           
         if(dates[0]){
-            if(this.state.progress == 100){
+            if(this.state.progress == 0 || this.state.progress == 100){
                 if(dates.length < 30){
                     let self = this;
                     dates.forEach(function(dateSingle) {
@@ -120,7 +120,7 @@ class Absences extends Component {
         e.preventDefault();
         let dates = new Date(this.state.date.toDateString() + " " + this.state.hour.toLocaleTimeString());
         if(dates){
-            if(this.state.progress == 100){
+            if(this.state.progress == 0 || this.state.progress == 100){
                 let date = dates.toDateString();
                 let time = dates.toLocaleTimeString();
                 Meteor.users.update(
@@ -155,7 +155,7 @@ class Absences extends Component {
         e.preventDefault();
         let absencesDay = e.target.absences[0].checked;
         let absencesMultiple = e.target.absences[1].checked;
-        if(e.target.file.files[0] && e.target.textarea1.value){
+        if(e.target.file.files[0]){
             if(this.state.progress == 0){
                 if(absencesDay || absencesMultiple){
                     if(e.target.file.files[0].size){
@@ -177,14 +177,6 @@ class Absences extends Component {
                     }else{
                         Materialize.toast('file bigger than 10mb or not a image', 4000);
                     }
-                    
-                    if(e.target.textarea1.value){
-                        this.setState({raison : e.target.textarea1.value})
-                    }
-                    
-                    if(absencesDay || absencesMultiple){
-                        this.openModal(absencesDay, absencesMultiple);
-                    }
                 }else{
                     Materialize.toast('Please, select a type of missing', 4000);
                 }
@@ -200,8 +192,16 @@ class Absences extends Component {
                     this.openModal(absencesDay, absencesMultiple);
                 }
             }
+        }
+        if(e.target.textarea1.value){
+            if(absencesDay || absencesMultiple){
+                this.openModal(absencesDay, absencesMultiple);
+            }
+            if(e.target.textarea1.value){
+                this.setState({raison : e.target.textarea1.value})
+            }
         }else{
-            Materialize.toast('Please, complete the form correctly', 4000);
+            Materialize.toast('Please, complete de form correctly', 4000);
         }
     }
 
@@ -242,7 +242,7 @@ class Absences extends Component {
             <div className="absencesPage">
                 <RedirectCoonectedComp />
                 <h2>Absences</h2>
-                <p>Anoncer une absence :</p>
+                <p>Prevent an absence :</p>
 
                 <Modal open={this.state.openModalMultiple} onClose={this.onCloseMultiple.bind(this)} little>
                     <DateRange
@@ -254,11 +254,11 @@ class Absences extends Component {
                     />
                     <div className="row">
                         <div className="col s6">
-                            <span>De :</span>
+                            <span>From :</span>
                             <input type="text" readOnly value={this.state.rangePickerMobile.startDate ? this.state.rangePickerMobile.startDate._d.toDateString() : ""} />
                         </div>    
                         <div className="col s6">
-                            <span>Jusqu'à :</span>
+                            <span>To :</span>
                             <input type="text" readOnly value={this.state.rangePickerMobile.endDate ? this.state.rangePickerMobile.endDate._d.toDateString() : ""} />
                         </div>    
                         <div className="col s12">
@@ -295,13 +295,13 @@ class Absences extends Component {
                         <div className="row">
                             <div className="input-field col s12">
                                 <textarea id="textarea1" name="textarea1" className="materialize-textarea" data-length="120"></textarea>
-                                <label htmlFor="textarea1">Raison de l'absences</label>
+                                <label htmlFor="textarea1">Reason for the absence</label>
                             </div>
                         </div>
                         <div className="file-field input-field">
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <span style={{color : "#9e9e9e"}}>Justificatif :</span>
+                                    <span style={{color : "#9e9e9e"}}>Proof :</span>
                                 </div>
                                 <div className="input-field col s12">
                                     <div className="btn">
@@ -320,11 +320,11 @@ class Absences extends Component {
                         <div className="row">
                             <p className="col s6">
                                 <input type="radio" name="absences" id="tardive"/>
-                                <label htmlFor="tardive">Arrivée tardive</label>
+                                <label htmlFor="tardive">Late arrival</label>
                             </p>
                             <p className="col s6">
                                 <input type="radio" name="absences" id="multipleDays"/>
-                                <label htmlFor="multipleDays">Absence de plusieur jours</label>
+                                <label htmlFor="multipleDays">Absences of several days</label>
                             </p>
                             <button className="col s12 waves-effect waves-light btn btn-block">Submit</button>
                         </div>
