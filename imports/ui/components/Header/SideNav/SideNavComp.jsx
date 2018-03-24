@@ -93,7 +93,7 @@ class SideNavComp extends Component {
                             <div style={styles.userInfo}>
                                 <NavLink activeClassName="active" to="/UserAccounts">
                                     <div style={styles.user} onClick={()=>this.toggleMenu()}>
-                                        <img style={{height: "100%", margin: "auto", display: "block"}} src={this.props.UserImage ? this.props.UserImage : "http://www.taxiaguilarapido.com/tar/files/images/no_photo.jpg"} alt="Profil User"/>
+                                        <img style={{height: "100%", margin: "auto", display: "block"}} src={this.props.UserImage ? this.props.UserImage : "https://www.thesourcepartnership.com/wp-content/uploads/2017/05/facebook-default-no-profile-pic-300x300.jpg"} alt="Profil User"/>
                                     </div>
                                 </NavLink>
                                 <NavLink activeClassName="active" to="/UserAccounts">
