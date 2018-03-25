@@ -12,7 +12,7 @@ export default class Progress extends Component {
     render() {
         return (
             <div className="mainProcess">
-                <img src="http://www.paristic.fr/14513-large_default/loading.jpg" style={styles.image} alt='logo'/>
+                <img src="https://cdn.dribbble.com/users/140957/screenshots/2533654/loading-animation.gif" style={styles.image} alt='logo'/>
                 <div className="loader-wrapper">
                     <div className="loader">
                         <div className="roller"></div>
