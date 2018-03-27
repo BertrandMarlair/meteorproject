@@ -31,7 +31,3 @@ accounts-password
 gadicc:blaze-react-component
 fourseven:scss
 react-meteor-data
-ostrio:files
-cfs:standard-packages
-cfs:gridfs
-cfs:filesystem

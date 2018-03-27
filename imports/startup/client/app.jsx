@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './asset/materialize';
 import './asset/jquery';
-import './asset/font.css';
 import './asset/main.css';
 import './asset/style.css';
 
